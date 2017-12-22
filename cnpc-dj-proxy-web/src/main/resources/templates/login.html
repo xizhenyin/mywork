@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html style="height:100%;width:100%;">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+
+
+<script src="${ctxPath!}/js/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="${ctxPath!}/js/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="${ctxPath!}/js/easyui/themes/icon.css">
+	<script type="text/javascript" src="${ctxPath!}/js/easyui/jquery.easyui.min.js"></script>
+	<script>var ctxPath = "${ctxPath!}" </script>
+	<script>
+	
+	function submitform() {
+		var testform=document.getElementById("_form");
+		testform.action= ctxPath+"/tologin";
+		testform.method = "post";
+		testform.submit();
+	  
+	}
+	</script>
+</head>
+<body style="height:100%;width:100%;overflow:hidden;border:none;" >
+	
+	
+	<div id="win" class="easyui-window" title="Login" style="width:300px;height:180px;">
+		<form id="_form" style="padding:10px 20px 10px 40px;" method="post" >
+			<p>Name: <input type="text" name="userName"  value="admin"></p>
+			<p>Pass: <input type="password" name="password" value="111111"></p>
+			<div style="padding:5px;text-align:center;">
+				<a onclick="submitform()" class="easyui-linkbutton" icon="icon-ok">Ok</a>
+				<a href="#" class="easyui-linkbutton" icon="icon-cancel">Cancel</a>
+			</div>
+			
+		</form>
+	
+	</div>
+
+</body>
+</html>

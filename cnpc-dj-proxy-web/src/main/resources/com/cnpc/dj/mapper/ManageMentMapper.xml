@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cnpc.dj.party.mapper.ManageMentMapper">
+  <resultMap id="BaseResultMap" type="com.cnpc.dj.party.entity.ManageMent">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="company_id" jdbcType="VARCHAR" property="companyId" />
+    <result column="from_url" jdbcType="CHAR" property="fromUrl" />
+    <result column="covert_url" jdbcType="CHAR" property="covertUrl" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="status" jdbcType="DECIMAL" property="status" />
+    <result column="type" jdbcType="DECIMAL" property="type" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_date" jdbcType="VARCHAR" property="createDate" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_date" jdbcType="VARCHAR" property="updateDate" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+     <result column="param_type" jdbcType="VARCHAR" property="paramType" />
+    
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, company_id, from_url, covert_url, name, status, type, create_by, create_date, 
+    update_by, update_date, remarks, del_flag,param_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_management
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_management
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.cnpc.dj.party.entity.ManageMent">
+    insert into t_management (id, company_id, from_url, 
+      covert_url, name, status, 
+      type, create_by, create_date, 
+      update_by, update_date, remarks, param_type,
+      del_flag)
+    values (#{id,jdbcType=VARCHAR}, #{companyId,jdbcType=VARCHAR}, #{fromUrl,jdbcType=CHAR}, 
+      #{covertUrl,jdbcType=CHAR}, #{name,jdbcType=VARCHAR}, #{status,jdbcType=DECIMAL}, 
+      #{type,jdbcType=DECIMAL}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=VARCHAR}, 
+      #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{paramType,jdbcType=VARCHAR},
+      #{delFlag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cnpc.dj.party.entity.ManageMent">
+    insert into t_management
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="fromUrl != null">
+        from_url,
+      </if>
+      <if test="covertUrl != null">
+        covert_url,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+       <if test="paramType != null">
+        param_type,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="fromUrl != null">
+        #{fromUrl,jdbcType=CHAR},
+      </if>
+      <if test="covertUrl != null">
+        #{covertUrl,jdbcType=CHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=DECIMAL},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+       <if test="paramType != null">
+         #{paramType,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cnpc.dj.party.entity.ManageMent">
+    update t_management
+    <set>
+      <if test="companyId != null">
+        company_id = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="fromUrl != null">
+        from_url = #{fromUrl,jdbcType=CHAR},
+      </if>
+      <if test="covertUrl != null">
+        covert_url = #{covertUrl,jdbcType=CHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=DECIMAL},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="paramType != null">
+       param_type = #{paramType,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cnpc.dj.party.entity.ManageMent">
+    update t_management
+    set company_id = #{companyId,jdbcType=VARCHAR},
+      from_url = #{fromUrl,jdbcType=CHAR},
+      covert_url = #{covertUrl,jdbcType=CHAR},
+      name = #{name,jdbcType=VARCHAR},
+      status = #{status,jdbcType=DECIMAL},
+      type = #{type,jdbcType=DECIMAL},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=VARCHAR},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+        param_type = #{paramType,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+   <select id="findList" resultMap="BaseResultMap">
+  	select * from t_management
+    	<where>
+			<if test="companyId != null and companyId != ''">
+				 company_id = #{companyId,jdbcType=VARCHAR}
+			</if>
+	
+			  <choose>
+                <when test="status != null and status !=''">
+                and   status = #{status,jdbcType=DECIMAL}
+                </when>
+                <otherwise>
+               and   status in (0,1)
+                </otherwise>
+            </choose>
+		</where>
+  </select>
+  
+ <update id="batchUpdate" parameterType="java.util.List" >  
+    <foreach collection="list" item="item" index="index" separator=";">  
+    UPDATE t_management 
+        set
+      status =  #{item.status,jdbcType=DECIMAL}
+    where id = #{item.id,jdbcType=VARCHAR}
+    </foreach>  
+</update>  
+</mapper>
