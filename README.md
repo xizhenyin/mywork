@@ -1,6 +1,6 @@
 # mywork
-mywork
+springboot-demo
 
-springboot样例工程 mybatis + 前端easyui + 缓存redis  + oracel + swagger2
+springboot鏍蜂緥宸ョ▼ mybatis + 鍓嶇easyui + 缂撳瓨redis  + oracel + swagger2
 
-后台管理页面
+鍚庡彴绠＄悊椤甸潰
