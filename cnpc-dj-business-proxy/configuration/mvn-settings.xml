@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+	<servers>
+		<server>
+			<id>dj_deploy</id>
+			<username>deployment</username>
+			<password>deployment123</password>
+		</server>
+	</servers>
+
+	<profiles>
+		<profile>
+			<id>jdk-1.8</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+				<jdk>1.8</jdk>
+			</activation>
+			<properties>
+				<maven.compiler.source>1.8</maven.compiler.source>
+				<maven.compiler.target>1.8</maven.compiler.target>
+				<maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>dj-public</id>
+			<repositories>
+				<repository>
+					<id>dj_deploy</id>
+					<name>Repository for dj</name>
+					<url>http://10.88.248.78:8081/nexus/content/groups/public</url>
+					<layout>default</layout>
+				</repository>
+			</repositories>
+
+			<pluginRepositories>
+				<pluginRepository>
+					<id>djPlugin</id>
+					<name>Repository for dj</name>
+					<url>http://10.88.248.78:8081/nexus/content/groups/public</url>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+	</profiles>
+
+	<activeProfiles>
+		<activeProfile>dj-public</activeProfile>
+		<activeProfile>jdk-1.8</activeProfile>
+	</activeProfiles>
+</settings>
